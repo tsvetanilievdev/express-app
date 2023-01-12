@@ -1,5 +1,9 @@
 <section class="catalog">
 <h3>OUR CATALOG!</h3>
+<form class="search-form" action="/catalog" method="get">
+    <input type="search" name="search">
+    <button>Search<i class="fa-solid fa-magnifying-glass"></i></button>
+</form>
 <ul>
     {{#each shoes}}
         {{>shoesCard}}
