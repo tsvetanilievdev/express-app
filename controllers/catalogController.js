@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll } = require('../services/shoesService.js');
+const { getAll, getById } = require('../services/shoesService.js');
 
 router.get('/', (req, res) => {
     res.render('catalog', {
@@ -10,9 +10,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+    let id = req.params.id;
+    const shoes = getById(id);
     res.render('details', {
         title: 'Details Page',
-        id: req.params.id
+        shoes
     });
 
 });

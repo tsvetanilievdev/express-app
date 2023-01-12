@@ -3,22 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    background-color: #a7dca3;
+    color: #123123;
+}
 body {
-    background-color: aquamarine;
+    background-color: #289f74;
     width: 1024px;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 
 h1,
 h2,
 h3 {
     text-align: center;
+    color: #753742;
+    color: #4f3130;
 }
 
 /* NAV */
 nav {
-    background-color: azure;
+    background-color: #63c9a7;
     padding: 24px 0;
     display: flex;
     justify-content: center;
@@ -28,12 +35,20 @@ nav a {
     font-size: 1.25rem;
     text-decoration: none;
     margin: 0 18px;
+    color: #123124;
+
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+nav a:hover {
+    background: #fff;
 }
 /* CREATE FORM */
 .create-form {
     margin: 0 auto;
     text-align: right;
     width: 300px;
+    color: #123123;
 }
 .create-form label {
     margin: 24px;
@@ -74,6 +89,7 @@ nav a {
     margin: 12px;
     box-shadow: -1px 1px 19px 0px rgba(0, 0, 0, 0.75);
 }
+
 .catalog h3 {
     margin-bottom: 12px;
 }
@@ -86,6 +102,7 @@ nav a {
 .catalog p {
     font-weight: 600;
     margin-bottom: 22px;
+    padding: 16px;
 }
 .catalog a {
     text-decoration: none;
@@ -99,6 +116,55 @@ nav a {
     display: block;
 }
 .catalog a:hover {
-    color: rgb(12, 56, 42);
+    color: #0c382a;
+    background-color: #fff;
+}
+
+/* DETAILS CARD */
+.details-card {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px 36px;
+}
+
+.details-card img {
+    width: 30%;
+}
+.details-card .content {
+    width: 70%;
+    padding: 24px 36px;
+    display: flex;
+    flex-direction: column;
+}
+.details-card .content h3 {
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+}
+.details-card .content p {
+    margin-bottom: 12px;
+}
+.details-card .content p:last-child {
+    margin-bottom: 0px;
+}
+.details-card .content span {
+    font-weight: 600;
+}
+.details-card .content .controls {
+    margin-top: auto;
+    text-align: center;
+}
+
+.details-card .content .controls a {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(12, 56, 42);
+    padding: 12px 24px;
+    border-radius: 12px;
+    width: 50%;
+}
+
+.details-card .content .controls a:hover {
+    color: #0c382a;
     background-color: #fff;
 }
