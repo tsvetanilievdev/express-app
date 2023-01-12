@@ -1,5 +1,8 @@
 <form class="create-form" action="" method="post">
     <h3>Create Form</h3>
+    {{#each errors}}
+        <p class="error">{{this}}</p>
+    {{/each}}
     <label>Brand: <input type="text" name="brand" /></label>
     <label>Model: <input type="text" name="model" /></label>
     <label>Price: <input type="number" name="price" /></label>
