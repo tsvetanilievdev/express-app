@@ -1,8 +1,10 @@
 const router = require('express').Router();
+const { getAll } = require('../services/shoesService.js');
 
 router.get('/', (req, res) => {
     res.render('catalog', {
-        title: 'Catalog Page'
+        title: 'Catalog Page',
+        shoes: getAll()
     });
 
 });

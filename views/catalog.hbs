@@ -1,1 +1,10 @@
+<section class="catalog">
 <h3>OUR CATALOG!</h3>
+<ul>
+    {{#each shoes}}
+        {{>shoesCard}}
+    {{else}}
+        <p>No Shoes in database!</p>
+    {{/each}}
+</ul>
+</section>
