@@ -18,8 +18,15 @@ async function persist() {
     })
 }
 
-function getAll() {
-    return data;
+function getAll(search) {
+
+    return data
+        .filter(x =>
+            x.model.toLowerCase().includes(search.toLowerCase())
+            || x.brand.toLowerCase().includes(search.toLowerCase())
+            || x.description.toLowerCase().includes(search.toLowerCase())
+        )
+
 }
 
 function getById(id) {

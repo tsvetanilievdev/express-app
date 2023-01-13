@@ -72,38 +72,6 @@ nav a:hover {
     resize: none;
 }
 
-.search-form {
-    margin: 0 auto;
-    width: 300px;
-    margin-bottom: 12px;
-    text-align: center;
-}
-.search-form input {
-    display: block;
-    height: 40px;
-    font-size: 1.25rem;
-    width: 100%;
-    margin-bottom: 12px;
-}
-.search-form button {
-    background: #63c9a7;
-    border: none;
-    font-size: 1.25rem;
-    text-decoration: none;
-    margin: 0 auto;
-    color: #123124;
-
-    padding: 6px 12px;
-    border-radius: 6px;
-}
-.search-form button:hover {
-    background: #fff;
-}
-.search-form button i {
-    margin: 0 6px;
-    font-size: 16px;
-}
-
 /* CATALOG */
 
 .catalog {
@@ -159,6 +127,40 @@ nav a:hover {
 .catalog a:hover {
     color: #0c382a;
     background-color: #fff;
+}
+/* CATALOG - SEARCH FORM*/
+.search-form {
+    width: 100%;
+    margin: 0 auto;
+    /* width: 300px; */
+    margin-bottom: 12px;
+    text-align: center;
+}
+.search-form input {
+    margin: 0 auto;
+
+    height: 40px;
+    font-size: 1.25rem;
+    width: 30%;
+    margin-bottom: 12px;
+}
+.search-form button {
+    background: #63c9a7;
+    border: none;
+    font-size: 1.25rem;
+    text-decoration: none;
+    margin-left: 12px;
+    color: #123124;
+
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+.search-form button:hover {
+    background: #fff;
+}
+.search-form button i {
+    margin: 0 6px;
+    font-size: 16px;
 }
 
 /* DETAILS CARD */
