@@ -84,6 +84,7 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: calc(5% - 36px);
+    margin-bottom: 12px;
 }
 .catalog li {
     background-color: rgb(99, 201, 167);

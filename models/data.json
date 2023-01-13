@@ -38,10 +38,10 @@
   {
     "id": "shoes-vhxz-704890",
     "brand": "test",
-    "model": "",
-    "price": 0,
-    "size": 0,
-    "description": "",
-    "image": ""
+    "model": "dasd",
+    "price": 11,
+    "size": 32,
+    "description": "tesdsds",
+    "image": "https://images.prodirectsport.com/ProductImages/Main/274333_Main_Thumb_1284950.jpg?impolicy=thumb&imwidth=256"
   }
 ]
