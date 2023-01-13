@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
         res.redirect('/catalog/' + result.id);
     } catch (errors) {
         res.locals.errors = errors;
+        res.locals.shoes = { ...req.body }
         res.render('create');
     }
 })

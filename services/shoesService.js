@@ -73,19 +73,25 @@ async function editById(id, shoesData) {
             throw errors;
         }
 
-        data = data.map(obj => {
-            if (obj.id == id) {
+        data = data.map(shoes => {
+            if (shoes.id == id) {
                 return newShoes;
             }
-            return obj
+            return shoes
         })
         await persist();
         return newShoes;
     }
 }
+
+async function deleteById(id) {
+    data = data.filter(shoes => shoes.id != id);
+    await persist();
+}
 module.exports = {
     getAll,
     getById,
     create,
-    editById
+    editById,
+    deleteById
 }
