@@ -1,3 +1,5 @@
+//Database - Mongo and Mongoose
+        schema, virtuals, Population...
 //colections
 [X] - two main collections
 [] - relations
@@ -12,6 +14,7 @@
 [X] - searching by brand, model, description
 [] - sorting by price, extras
 [] - pagination - limit and skip
+
 
 //Testing
 [] - check CODE -
