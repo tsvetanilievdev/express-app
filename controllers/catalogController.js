@@ -3,9 +3,7 @@ const { getAll, getById } = require('../services/shoesService.js');
 
 router.get('/', async (req, res) => {
     const search = req.query.search || '';
-    console.log(search)
     const shoes = await getAll(search);
-    console.log(shoes)
     res.render('catalog', {
         title: 'Catalog Page',
         shoes,
