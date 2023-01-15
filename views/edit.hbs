@@ -1,24 +1,48 @@
 <form class="create-form" action="/edit/{{shoes._id}}" method="post">
-    <h3>Edit Form</h3>
-    {{#each errors}}
-        <p class="error">{{this}}</p>
-    {{/each}}
-    <label>Brand:
-        <input type="text" name="brand" value="{{shoes.brand}}" /></label>
-    <label>Model:
-        <input type="text" name="model" value="{{shoes.model}}" /></label>
-    <label>Price:
-        <input type="number" name="price" value="{{shoes.price}}" /></label>
-    <label>Size:
-        <input type="number" name="size" value="{{shoes.size}}" /></label>
-    <label>Image:
-        <input type="text" name="image" value="{{shoes.image}}" /></label>
-    <label>Description:
-        <textarea
-            name="description"
-            id=""
-            cols="30"
-            rows="10"
-        >{{shoes.description}}</textarea></label>
-    <input type="submit" value="Edit" />
+    <section class="create-form-wrapper">
+        <h3>Edit Form</h3>
+        {{#each errors}}
+            <p class="error">{{this}}</p>
+        {{/each}}
+        <label>Brand:
+            <input type="text" name="brand" value="{{shoes.brand}}" /></label>
+        <label>Model:
+            <input type="text" name="model" value="{{shoes.model}}" /></label>
+        <label>Price:
+            <input type="number" name="price" value="{{shoes.price}}" /></label>
+        <label>Size:
+            <input type="number" name="size" value="{{shoes.size}}" /></label>
+        <label>Image:
+            <input type="text" name="image" value="{{shoes.image}}" /></label>
+        <label>Description:
+            <textarea
+                name="description"
+                id=""
+                cols="30"
+                rows="10"
+            >{{shoes.description}}</textarea></label>
+        <input type="submit" value="Edit" />
+    </section>
+    <section class="extras-add-wrapper">
+        {{#if extras}}
+            <h3>Available Extras</h3>
+            <ul>
+                {{#each extras}}
+                    <li>
+                        <label><input
+                                type="checkbox"
+                                name="box-{{_id}}"
+                                {{#if isOn}}
+                                checked
+                                {{/if}}
+                            /><span>{{name}}:</span>{{price}}$
+
+                        </label>
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>There is no extras yet!</p>
+        {{/if}}
+    </section>
 </form>
