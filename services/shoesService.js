@@ -14,6 +14,7 @@ async function getAll(search) {
 
 function getById(id) {
     return Shoes.findById(id)
+        .populate('extras', 'name')
         .lean()
         .exec();
 }
@@ -32,6 +33,7 @@ async function create(shoesData) {
         size: Number(shoesData.size),
         description: shoesData.description,
         image: shoesData.image,
+        extras: shoesData.extras
     })
     return newShoes;
 }
