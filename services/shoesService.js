@@ -13,7 +13,9 @@ async function getAll(search) {
 }
 
 function getById(id) {
-    return Shoes.findById(id).lean().exec();
+    return Shoes.findById(id)
+        .lean()
+        .exec();
 }
 
 async function create(shoesData) {
@@ -40,9 +42,7 @@ async function editById(id, shoesData) {
         const errors = missing.map(k => `The ${k[0]} field is required!`);
         throw errors;
     }
-    console.log('SHOE EDIT!')
     const shoes = await Shoes.findByIdAndUpdate(id, shoesData);
-    console.log('BEFORE', shoes)
     return shoes;
 }
 
