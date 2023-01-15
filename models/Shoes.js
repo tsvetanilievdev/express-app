@@ -6,7 +6,8 @@ const shoesSchema = new Schema({
     price: { type: Number, required: true, min: 0 },
     size: { type: Number, required: true, min: 30 },
     description: { type: String },
-    image: { type: String, required: true }
+    image: { type: String, required: true },
+    players: { type: [Types.ObjectId], default: [], ref: 'player' }
 })
 
 const Shoes = model('shoes', shoesSchema);
