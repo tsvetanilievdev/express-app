@@ -10,9 +10,14 @@
             </p>
             <span>Extras</span>
             {{#if extras}}
-                {{#each extras}}
-                    <li> {{name}}</li>
-                {{/each}}
+                <ul>
+
+                    {{#each extras}}
+                        <li> {{name}}</li>
+                    {{/each}}
+                    <p class="total"><span>TOTAL Price with extras:</span>
+                        {{totalValue}}$</p>
+                </ul>
             {{else}}
                 <p>No extras added</p>
             {{/if}}

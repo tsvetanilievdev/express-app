@@ -14,8 +14,8 @@ async function getAll(search) {
 
 function getById(id) {
     return Shoes.findById(id)
-        .populate('extras', 'name')
-        .lean()
+        .populate('extras', 'name price')
+        .lean({ virtuals: true })
         .exec();
 }
 

@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const mongooseLeanVirtuals = require('mongoose-lean-virtuals');
 
 const shoesSchema = new Schema({
     brand: { type: String, required: true },
@@ -9,6 +10,12 @@ const shoesSchema = new Schema({
     image: { type: String, required: true },
     extras: { type: [Types.ObjectId], default: [], ref: 'extra' }
 }, { timestamps: true })
+
+shoesSchema.virtual('totalValue').get(function () {
+    console.log(this.extras)
+    return this.price + this.extras.reduce((acc, c) => acc + Number(c.price), 0)
+})
+shoesSchema.plugin(mongooseLeanVirtuals);
 const Shoes = model('shoes', shoesSchema);
 
 module.exports = Shoes;

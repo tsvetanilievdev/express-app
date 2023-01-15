@@ -202,14 +202,13 @@ nav a:hover {
     margin-bottom: 6px;
 }
 .details-card .content p.desc {
-    margin-bottom: 18px;
+    margin-bottom: 6px;
 }
 .details-card .content span {
     font-weight: 600;
 }
 .details-card .content .controls {
     margin-top: auto;
-    text-align: center;
 }
 
 .details-card .content .controls a {
@@ -224,6 +223,10 @@ nav a:hover {
 .details-card .content .controls a:hover {
     color: #0c382a;
     background-color: #fff;
+}
+.details-card .total {
+    font-size: 1.25rem;
+    margin: 6px 0;
 }
 
 /* Components */
