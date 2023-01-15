@@ -9,8 +9,8 @@
 [] - private content - CRUD on own collections
 
 //Functionallities
-[X] - searching
-[] - sorting by price
+[X] - searching by brand, model, description
+[] - sorting by price, extras
 [] - pagination - limit and skip
 
 //Testing
