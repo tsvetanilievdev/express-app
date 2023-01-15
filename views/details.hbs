@@ -8,13 +8,14 @@
             <p class="desc"><span>Description:</span>
                 {{description}}
             </p>
+            <span>Extras</span>
             {{#if extras}}
-                <span>Extras</span>
                 {{#each extras}}
                     <li> {{name}}</li>
                 {{/each}}
+            {{else}}
+                <p>No extras added</p>
             {{/if}}
-            <p>{{e}}</p>
             <div class="controls">
                 <a href="/edit/{{_id}}">Edit</a>
                 <a href="/delete/{{_id}}">Delete</a>
