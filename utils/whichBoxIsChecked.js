@@ -1,6 +1,6 @@
 function whichBoxIsChecked(body, data) {
-    const extras = data.map(x => Object.assign({ isOn: false }, x))
-    console.log(body);
+    const extras = data.map(x => Object.assign({ isOn: false }, x));
+
     let checkedExtras;
     if (Array.isArray(body)) {
         checkedExtras = body.map(k => k._id);
