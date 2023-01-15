@@ -5,7 +5,6 @@ const createController = require('../controllers/createController.js');
 const editController = require('../controllers/editController.js');
 const deleteController = require('../controllers/deleteController.js');
 const defaultController = require('../controllers/defaultController.js');
-const expressConfig = require('../config/expressConfig.js');
 
 
 module.exports = (app) => {
