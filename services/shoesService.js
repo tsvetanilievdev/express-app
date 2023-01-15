@@ -2,7 +2,11 @@ const Shoes = require('../models/Shoes.js');
 
 async function getAll(search) {
     if (search) {
-        return Shoes.find({ $text: { $search: search } }).limit(3).sort('-createdAt').lean().exec();
+        return Shoes.find({ $text: { $search: search } })
+            .limit(3)
+            .sort({ 'createdAt': -1 })
+            .lean()
+            .exec();
     }
     return Shoes.find({}).lean().exec();
 
