@@ -10,7 +10,6 @@ const port = 3000;
 start()
 
 async function start() {
-
     await dbConfig(app);
     expressConfig(app);
     routesConfig(app);

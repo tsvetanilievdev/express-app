@@ -1,0 +1,34 @@
+//colections
+[X] - two main collections
+[] - relations
+[X] - CRUD
+
+//authentication
+[] - register,login,logout
+[] - user roles
+[] - private content - CRUD on own collections
+
+//Functionallities
+[X] - searching
+[] - sorting by price
+[] - pagination - limit and skip
+
+//Testing
+[] - check CODE -
+        - Use Descriptive Names. 
+        - Give Each Class/Function One Purpose. 
+        - Delete Unnecessary Code. 
+        - Readability > Cleverness. 
+        - Keep a Consistent Coding Style. 
+        - Choose the Right Architecture. 
+        - Master the Language's Idioms.
+        - Study the Code of Masters
+        - Write Good Comments
+        - Refactor, Refactor, Refactor
+[] - test
+
+//UI
+[] - prettier css
+
+//README.md
+[] - better documentation
