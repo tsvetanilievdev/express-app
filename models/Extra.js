@@ -1,7 +1,7 @@
 const { Schema, model, Types } = require('mongoose');
 
 const extraSchema = new Schema({
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
     shoes: { type: [Types.ObjectId], default: [], ref: 'shoes' }
 })
 
