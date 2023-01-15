@@ -30,5 +30,8 @@
 //UI
 [] - prettier css
 
+//deployment
+
+
 //README.md
 [] - better documentation
