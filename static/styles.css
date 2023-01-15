@@ -285,3 +285,61 @@ nav a:hover {
     background-color: fff;
     color: rgb(12, 56, 42);
 }
+
+/* Extras FORM */
+.extras-form {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+    color: #123123;
+}
+.extras-form label {
+    margin: 24px;
+    display: block;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.extras-form label input {
+    width: 70%;
+}
+.extras-form input[type="submit"] {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(12, 56, 42);
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 36px;
+}
+.extras-form input[type="submit"]:hover {
+    color: rgb(12, 56, 42);
+    background-color: #fff;
+    cursor: pointer;
+}
+/* Extras Section */
+.extra {
+    width: 300px;
+    margin: 0 auto;
+}
+.extra h3 {
+    margin-bottom: 12px;
+}
+.extra ul {
+    padding: 0 12px;
+}
+.extra li {
+    list-style: none;
+    margin-bottom: 4px;
+}
+.extra li span {
+    font-weight: 600;
+    margin-right: 8px;
+}
+.extra label {
+    display: block;
+}
