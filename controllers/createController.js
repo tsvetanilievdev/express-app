@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const result = await create(req.body);
-        res.redirect('/catalog/' + result.id);
+        res.redirect('/catalog/' + result._id);
     } catch (errors) {
         res.locals.errors = errors;
         res.locals.shoes = { ...req.body }

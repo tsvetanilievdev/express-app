@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const connectionString = `mongodb://127.0.0.1/27017`;
+
+const connectionString = 'mongodb://127.0.0.1:27017/shoes-store'
 
 module.exports = async (app) => {
 
@@ -10,7 +11,7 @@ module.exports = async (app) => {
         });
     } catch (error) {
         console.error('Error in initializing DB');
-        console.error(err.message);
+        console.error(error.message);
         process.exit(1);
     }
 

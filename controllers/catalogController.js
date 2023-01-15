@@ -1,19 +1,19 @@
 const router = require('express').Router();
 const { getAll, getById } = require('../services/shoesService.js');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     const search = req.query.search || '';
     res.render('catalog', {
         title: 'Catalog Page',
-        shoes: getAll(search),
+        shoes: await getAll(search),
         search
     });
 
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     let id = req.params.id;
-    const shoes = getById(id);
+    const shoes = await getById(id);
     res.render('details', {
         title: 'Details Page',
         shoes

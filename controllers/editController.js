@@ -2,9 +2,9 @@ const { getById, editById } = require('../services/shoesService.js');
 
 const router = require('express').Router();
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     const id = req.params.id;
-    const shoes = getById(id);
+    const shoes = await getById(id);
     res.render('edit', {
         shoes
     });
@@ -13,12 +13,13 @@ router.get('/:id', (req, res) => {
 router.post('/:id', async (req, res) => {
 
     try {
-        console.log(req.body)
+        console.log('BEFORE')
         const result = await editById(req.params.id, req.body);
-        res.redirect('/catalog/' + result.id);
+        console.log('AFTER')
+        res.redirect('/catalog/' + result._id);
     } catch (errors) {
         res.locals.errors = errors;
-        res.locals.shoes = { ...req.body, id: req.params.id }
+        res.locals.shoes = { ...req.body, _id: req.params.id }
         res.render('edit');
     }
 })
