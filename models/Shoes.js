@@ -12,7 +12,6 @@ const shoesSchema = new Schema({
 }, { timestamps: true })
 
 shoesSchema.virtual('totalValue').get(function () {
-    console.log(this.extras)
     return this.price + this.extras.reduce((acc, c) => acc + Number(c.price), 0)
 })
 shoesSchema.plugin(mongooseLeanVirtuals);

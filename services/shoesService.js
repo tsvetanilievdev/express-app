@@ -1,3 +1,4 @@
+const { Types: { ObjectId } } = require('mongoose')
 const Shoes = require('../models/Shoes.js');
 
 async function getAll(search) {
@@ -17,6 +18,14 @@ function getById(id) {
         .populate('extras', 'name price')
         .lean({ virtuals: true })
         .exec();
+}
+
+async function getAllShoesWithExtra(extraIds) {
+
+    return Shoes.find({ extras: { $in: [ObjectId('63c40ec8cb30ca8a465e0948'), ObjectId('63c469b7f4abe8dbdf9cda07')] } }).select('brand model');
+    // return Shoes.find({ extras: ObjectId('63c40ec8cb30ca8a465e0948') })
+    // return Shoes.find({ extras: { $elemMatch: { _id: { $in: ["63c469b7f4abe8dbdf9cda07"] } } } });
+
 }
 
 async function create(shoesData) {
@@ -56,5 +65,6 @@ module.exports = {
     getById,
     create,
     editById,
-    deleteById
+    deleteById,
+    getAllShoesWithExtra
 }
