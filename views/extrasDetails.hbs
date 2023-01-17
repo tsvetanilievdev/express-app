@@ -1,0 +1,16 @@
+<section class="extra wide">
+    <h3>{{name}} is used by:</h3>
+    <ul>
+        {{#if shoes}}
+            {{#each shoes}}
+
+                <a href="/catalog/{{_id}}">{{brand}}
+                    -
+                    <span>{{model}}</span></a>
+
+            {{/each}}
+        {{else}}
+            <p>This extra is NOT used!</p>
+        {{/if}}
+    </ul>
+</section>

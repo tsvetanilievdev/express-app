@@ -20,12 +20,9 @@ function getById(id) {
         .exec();
 }
 
-async function getAllShoesWithExtra(extraIds) {
-
-    return Shoes.find({ extras: { $in: [ObjectId('63c40ec8cb30ca8a465e0948'), ObjectId('63c469b7f4abe8dbdf9cda07')] } }).select('brand model');
-    // return Shoes.find({ extras: ObjectId('63c40ec8cb30ca8a465e0948') })
-    // return Shoes.find({ extras: { $elemMatch: { _id: { $in: ["63c469b7f4abe8dbdf9cda07"] } } } });
-
+async function getAllShoesWithExtra(...extraIds) {
+    let extrasToFind = extraIds.map(x => new ObjectId(x))
+    return Shoes.find({ extras: { $in: extrasToFind } }).select('brand model').lean().exec();
 }
 
 async function create(shoesData) {

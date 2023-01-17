@@ -9,10 +9,8 @@
         <h3>Available Extras</h3>
         <ul>
             {{#each extras}}
-                <li id="{{_id}}">
-                    <label><span>{{name}}:</span>{{price}}$</label>
-                    {{!-- <input type="checkbox" name="{{_id}}" id="" /> --}}
-                </li>
+                <a href="/extras/{{_id}}/{{name}}"><span
+                    >{{name}}:</span>{{price}}$</a>
             {{/each}}
         </ul>
     {{else}}

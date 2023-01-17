@@ -336,20 +336,29 @@ nav a:hover {
     width: 300px;
     margin: 0 auto;
 }
+.extra.wide {
+    width: 50%;
+    position: relative;
+}
 .extra h3 {
     margin-bottom: 12px;
 }
 .extra ul {
     padding: 0 12px;
 }
-.extra li {
+.extra a {
+    text-decoration: none;
+    color: #123123;
     list-style: none;
     margin-bottom: 4px;
+    display: block;
 }
-.extra li span {
+.extra a:hover {
+    cursor: pointer;
+    color: #fff;
+}
+
+.extra a span {
     font-weight: 600;
     margin-right: 8px;
-}
-.extra label {
-    display: block;
 }
