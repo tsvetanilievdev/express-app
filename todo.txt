@@ -15,6 +15,7 @@
 [] - sorting by price, extras
 [] - pagination - limit and skip
 
+[] - About Page - form to send questions - new COllection Questions
 
 //Testing
 [] - check CODE -
