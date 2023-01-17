@@ -4,9 +4,6 @@ const { getAll, getById, getAllShoesWithExtra } = require('../services/shoesServ
 
 router.get('/', async (req, res) => {
 
-    const test = await getAllShoesWithExtra();
-    console.log(test);
-
     const search = req.query.search || '';
     const shoes = await getAll(search);
     res.render('catalog', {

@@ -20,7 +20,6 @@ extraController.post('/', async (req, res) => {
 extraController.get('/:id/:name', async (req, res) => {
     const { id, name } = req.params
     const shoes = await getAllShoesWithExtra(id);
-    console.log(shoes)
     res.render('extrasDetails', {
         shoes,
         name
