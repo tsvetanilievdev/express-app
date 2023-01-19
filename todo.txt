@@ -2,7 +2,7 @@
         schema, virtuals, Population...
 //colections
 [X] - two main collections
-[] - relations
+[X] - relations
 [X] - CRUD
 
 //authentication

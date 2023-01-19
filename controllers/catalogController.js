@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, getById, getAllShoesWithExtra } = require('../services/shoesService.js');
+const { getAll, getById } = require('../services/shoesService.js');
 
 
 router.get('/', async (req, res) => {
