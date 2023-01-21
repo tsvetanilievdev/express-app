@@ -7,8 +7,11 @@
 
 //authentication
 [] - register,login,logout
-[] - user roles
+[] - user roles - user, admin
 [] - private content - CRUD on own collections
+[] - using JSW/session
+
+//Route guards
 
 //Functionallities
 [X] - searching by brand, model, description
