@@ -9,7 +9,7 @@
 [] - register,login,logout
 [] - user roles - user, admin
 [] - private content - CRUD on own collections
-[] - using JSW/session
+[X] - using cookies with JSW/session -- expiring jwt, clear expired jwt
 
 //Route guards
 
