@@ -1,4 +1,4 @@
-const { login } = require('../services/authService.js');
+const { login, register } = require('../services/authService.js');
 
 const authController = require('express').Router();
 
@@ -7,14 +7,20 @@ authController.get('/login', (req, res) => {
 
 })
 authController.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
     try {
-        const user = await login(req.body.username, req.body.password);
-        const token = req.signJWT(user);
-        res.cookie('token', token, { maxAge: 3600 * 1000 });
-        res.redirect('/')
+        if (username.trim() == '' || password.trim() == '') {
+            throw new Error('All fields are required!')
+        }
+        const user = await login(username, password);
+        attachToken(req, res, user);
+        res.redirect('/');
     } catch (error) {
-        console.log(error.message);
-        res.redirect('/auth/login');
+        res.render('login', {
+            errors: [error.message],
+            username
+        })
     }
 })
 
@@ -24,9 +30,33 @@ authController.get('/register', (req, res) => {
 })
 
 
-authController.post('/register', (req, res) => {
+authController.post('/register', async (req, res) => {
+    const { username, password, repass } = req.body;
+    try {
+        if (username.trim() == '' || password.trim() == '') {
+            throw new Error('All fields are required!')
+        }
+        if (password.trim() !== repass.trim()) {
+            throw new Error('The passwords must be the same!')
+        }
 
+        const user = await register(username, password);
+        attachToken(req, res, user);
+        res.redirect('/');
+    } catch (error) {
+        res.render('register', {
+            errors: [error.message],
+            username
+        })
+    }
 })
+
+//sign token and attach it
+function attachToken(req, res, user) {
+    const token = req.signJWT(user);
+    res.cookie('token', token, { maxAge: 3600 * 1000 });
+
+}
 
 module.exports = authController;
 
