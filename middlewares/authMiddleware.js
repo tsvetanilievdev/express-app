@@ -5,16 +5,17 @@ module.exports = (secretCode) => (req, res, next) => {
     if (token) {
         try {
             const data = jwt.verify(token, secretCode);
-            console.log('VERIFIED DATA >>>>>>>>>>>>>>>>>>>>>>>>')
+            console.log('VERIFIED DATA >>>>>>>>>>>>>>>>>>>>>>>>');
             req.user = data;
         } catch (error) {
             //clear cookie
-            res.cookie('token', '', { maxAge: 0 });
+            // res.cookie('token', '', { maxAge: 0 });
+            res.clearCookie('token');
             return res.redirect('/login')
         }
     }
     //sign method
-    req.signJWT = (data) => jwt.sign(data, secretCode, { expiresIn: '1h' });
+    req.signJWT = (data, maxAge) => jwt.sign(data, secretCode, { expiresIn: maxAge });
 
     next();
 }

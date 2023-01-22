@@ -8,9 +8,10 @@ authController.get('/login', (req, res) => {
 })
 authController.post('/login', async (req, res) => {
     try {
+        let maxAge = 3600;
         const user = await login(req.body.username, req.body.password);
-        const token = req.signJWT(user);
-        res.cookie('token', token);
+        const token = req.signJWT(user, maxAge);
+        res.cookie('token', token, { maxAge });
         res.redirect('/')
     } catch (error) {
         console.log(error.message);
