@@ -3,14 +3,15 @@
 //colections
 [X] - two main collections
 [X] - relations
-[X] - CRUD
+[X] - CRUD - with validation for empty fields
 
-//authentication
+//authentication - validation
 [] - register,login,logout
 [] - user roles - user, admin
 [] - private content - CRUD on own collections
 [X] - using cookies with JSW/session -- expiring jwt, clear expired jwt 
 [X] - jwt and cookie will expire after 1 hour 
+[X] - validation - empty fields, diffrent passwords, wrong credentials
 
 //Route guards
 

@@ -12,7 +12,7 @@ async function register(username, password) {
     //create and save user
     const user = await User.create({
         username,
-        hashedPass
+        hashedPass,
     })
     return {
         username: user.username,
