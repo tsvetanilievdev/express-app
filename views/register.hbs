@@ -1,0 +1,12 @@
+<form class="create-form" action="/auth/login" method="post">
+    <section class="create-form-wrapper">
+        <h3>Register Form</h3>
+        {{#each errors}}
+            <p class="error">{{this}}</p>
+        {{/each}}
+        <label>Username: <input type="text" name="username" /></label>
+        <label>Password: <input type="password" name="password" /></label>
+        <label>Repass: <input type="password" name="repass" /></label>
+        <input class="btn" type="submit" value="Register" />
+    </section>
+</form>

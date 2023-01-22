@@ -20,7 +20,7 @@ authController.post('/login', async (req, res) => {
 
 
 authController.get('/register', (req, res) => {
-
+    res.render('register');
 })
 
 

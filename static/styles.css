@@ -73,6 +73,17 @@ nav a:hover {
 .create-form input[type="submit"] {
     padding: 12px 18px;
     margin: 24px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(12, 56, 42);
+    border: none;
+    border-radius: 12px;
+    width: 50%;
+}
+.create-form input[type="submit"]:hover {
+    color: #0c382a;
+    background-color: #fff;
+    cursor: pointer;
 }
 .create-form label textarea {
     width: 300px;
