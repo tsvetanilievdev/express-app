@@ -1,0 +1,11 @@
+<form class="create-form" action="/auth/login" method="post">
+    <section class="create-form-wrapper">
+        <h3>Login Form</h3>
+        {{#each errors}}
+            <p class="error">{{this}}</p>
+        {{/each}}
+        <label>Username: <input type="text" name="username" /></label>
+        <label>Password: <input type="password" name="password" /></label>
+        <input type="submit" value="Login" />
+    </section>
+</form>
