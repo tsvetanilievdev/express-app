@@ -17,7 +17,8 @@ module.exports = (secretCode) => (req, res, next) => {
     }
     //sign method
     req.signJWT = (data) => jwt.sign(data, secretCode, { expiresIn: '1h' });
-    //hasUser for NAV
+
+    //hasUser for NAVigation
     res.locals.hasUser = hasUser;
 
     next();

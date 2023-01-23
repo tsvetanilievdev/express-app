@@ -6,7 +6,7 @@ const hbs = require('express-handlebars').create({
 //env
 const secretCode = 'kmek21nnd331NNK@!KKNSAzxzxz202919210s9xzze2321lkrqkx'
 
-const defaultTitle = require('../middlewares/defaultTitle.js');
+const defaultTitleMiddleware = require('../middlewares/defaultTitleMiddleware.js');
 const authMiddleware = require('../middlewares/authMiddleware.js');
 
 
@@ -19,5 +19,5 @@ module.exports = (app) => {
     app.use('/static', express.static('static'));
     app.use(cookieParser());
     app.use(authMiddleware(secretCode))
-    app.use(defaultTitle('Express App'));
+    app.use(defaultTitleMiddleware('Express App'));
 }
