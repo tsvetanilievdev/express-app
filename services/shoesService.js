@@ -6,10 +6,11 @@ async function getAll(search) {
         return Shoes.find({ $text: { $search: search } })
             .limit(3)
             .sort({ 'createdAt': -1 })
-            .lean()
+            .populate('extras', 'price')
+            .lean({ virtuals: true })
             .exec();
     }
-    return Shoes.find({}).lean().exec();
+    return Shoes.find({}).populate('extras', 'price').lean({ virtuals: true }).exec();
 
 }
 

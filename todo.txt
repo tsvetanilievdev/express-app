@@ -1,5 +1,8 @@
 //Database - Mongo and Mongoose
-        schema, virtuals, Population...
+
+        schema, virtuals, validation,Population...
+[X] - using virtual - totalValue, which is dynamic property 
+[] - validation - in creation, methods
 //colections
 [X] - two main collections
 [X] - relations
