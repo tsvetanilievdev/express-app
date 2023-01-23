@@ -26,7 +26,7 @@ async function getAllShoesWithExtra(...extraIds) {
     return Shoes.find({ extras: { $in: extrasToFind } }).select('brand model').lean().exec();
 }
 
-async function create(shoesData) {
+async function create(shoesData, ownerId) {
     const missing = Object.entries(shoesData).filter(([k, v]) => !v);
     if (missing.length > 0) {
         const errors = missing.map(k => `The ${k[0]} field is required!`);
@@ -40,7 +40,8 @@ async function create(shoesData) {
         size: Number(shoesData.size),
         description: shoesData.description,
         image: shoesData.image,
-        extras: shoesData.extras
+        extras: shoesData.extras,
+        ownerId
     })
     return newShoes;
 }

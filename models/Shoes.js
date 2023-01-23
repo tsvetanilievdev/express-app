@@ -8,7 +8,8 @@ const shoesSchema = new Schema({
     size: { type: Number, required: true, min: 30 },
     description: { type: String },
     image: { type: String, required: true },
-    extras: { type: [Types.ObjectId], default: [], ref: 'extra' }
+    extras: { type: [Types.ObjectId], default: [], ref: 'extra' },
+    ownerId: { type: Types.ObjectId, required: true, ref: 'user' }
 }, { timestamps: true })
 
 shoesSchema.virtual('totalValue').get(function () {

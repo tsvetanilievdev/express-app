@@ -1,23 +1,26 @@
 //Database - Mongo and Mongoose
-
-        schema, virtuals, validation,Population...
+schema, virtuals, validation,Population...
 [X] - using virtual - totalValue, which is dynamic property 
 [] - validation - in creation, methods
+
 //colections
 [X] - two main collections
 [X] - relations
 [X] - CRUD - with validation for empty fields
 
 //authentication - validation
-[] - register,login,logout
+[X] - User model
+[X] - register,login,logout
 [] - user roles - user, admin
+[] - only admin can create extras
+[] - owner of collection or admin can edit or delete it!
 [] - private content - CRUD on own collections
 [X] - using cookies with JSW/session -- expiring jwt, clear expired jwt 
 [X] - jwt and cookie will expire after 1 hour 
 [X] - validation - empty fields, diffrent passwords, wrong credentials
 
 //navigation
-[] - show diffrent buttons after authentication
+[X] - show diffrent buttons after authentication
 
 //Route guards
 

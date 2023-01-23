@@ -14,7 +14,9 @@
             <a href="/about">About</a>
             {{#if hasUser}}
                 <a href="/create">Create</a>
-                <a href="/extras">Extras</a>
+                {{#if isAdmin}}
+                    <a href="/extras">Extras</a>
+                {{/if}}
                 <a href="/auth/logout">Logout</a>
             {{else}}
                 <a href="/auth/login">Login</a>

@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
         }
 
         shoesData.extras = Object.keys(req.body).filter(k => k.startsWith('box')).map(k => k.slice(4))
-
-        const result = await create(shoesData);
+        const ownerId = req.user._id;
+        const result = await create(shoesData, ownerId);
         res.redirect('/catalog/' + result._id);
     } catch (errors) {
         res.locals.errors = errors;

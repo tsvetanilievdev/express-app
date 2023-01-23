@@ -51,6 +51,11 @@ authController.post('/register', async (req, res) => {
     }
 })
 
+authController.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/auth/login');
+})
+
 //sign token and attach it
 function attachToken(req, res, user) {
     const token = req.signJWT(user);

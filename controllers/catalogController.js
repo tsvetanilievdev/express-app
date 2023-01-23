@@ -16,6 +16,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     let id = req.params.id;
     const shoes = await getById(id);
+    if (req.user && req.user._id == shoes.ownerId) {
+        shoes.isOwner = true;
+    }
     res.render('details', {
         title: 'Details Page',
         shoes

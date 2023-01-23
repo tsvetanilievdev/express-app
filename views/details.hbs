@@ -23,9 +23,11 @@
             {{/if}}
 
         </div>
-        <div class="controls">
-            <a href="/edit/{{_id}}">Edit</a>
-            <a href="/delete/{{_id}}">Delete</a>
-        </div>
+        {{#if isOwner}}
+            <div class="controls">
+                <a href="/edit/{{_id}}">Edit</a>
+                <a href="/delete/{{_id}}">Delete</a>
+            </div>
+        {{/if}}
     </section>
 {{/with}}

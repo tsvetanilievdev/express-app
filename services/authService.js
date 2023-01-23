@@ -15,6 +15,7 @@ async function register(username, password) {
         hashedPass,
     })
     return {
+        _id: user._id,
         username: user.username,
         roles: user.roles
     }
@@ -32,10 +33,12 @@ async function login(username, password) {
     }
 
     return {
+        _id: user._id,
         username: user.username,
         roles: user.roles
     }
 }
+
 
 module.exports = {
     login,

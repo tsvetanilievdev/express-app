@@ -7,6 +7,7 @@ const deleteController = require('../controllers/deleteController.js');
 const extrasController = require('../controllers/extrasController.js');
 const authController = require('../controllers/authController.js');
 const defaultController = require('../controllers/defaultController.js');
+const guard = require('../middlewares/guardsMiddleware.js');
 
 
 module.exports = (app) => {
@@ -14,10 +15,10 @@ module.exports = (app) => {
     //attach all controllers
     app.use('/about', aboutController);
     app.use('/catalog', catalogController);
-    app.use('/create', createController);
+    app.use('/create', guard.hasUser(), createController);
     app.use('/edit', editController);
     app.use('/delete', deleteController);
-    app.use('/extras', extrasController);
+    app.use('/extras', guard.hasRole('admin'), extrasController);
     app.use('/auth', authController);
 
     //attach default controller LAST
