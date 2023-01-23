@@ -7,12 +7,18 @@ const router = require('express').Router();
 router.get('/:id', async (req, res) => {
     const id = req.params.id;
     const shoes = await getById(id);
-    const allExtras = await getAllExtras();
-    const extras = whichBoxIsChecked(shoes.extras, allExtras);
-    res.render('edit', {
-        shoes,
-        extras
-    });
+    if ((req.user && req.user._id == shoes.ownerId) || res.locals.isAdmin) {
+        shoes.isOwner = true;
+        const allExtras = await getAllExtras();
+        const extras = whichBoxIsChecked(shoes.extras, allExtras);
+
+        res.render('edit', {
+            shoes,
+            extras
+        });
+    } else {
+        res.redirect('/auth/login');
+    }
 })
 
 router.post('/:id', async (req, res) => {
