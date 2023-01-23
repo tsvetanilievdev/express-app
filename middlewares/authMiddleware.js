@@ -16,7 +16,6 @@ module.exports = (secretCode) => (req, res, next) => {
         }
         hasUser = true;
         isAdmin = req.user.roles.includes('admin');
-        console.log(req.user.roles);
     }
     //sign method
     req.signJWT = (data) => jwt.sign(data, secretCode, { expiresIn: '1h' });

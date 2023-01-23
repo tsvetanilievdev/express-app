@@ -22,8 +22,6 @@ function isGuest() {
 
 function hasRole(role) {
     return function (req, res, next) {
-        console.log(req.user.roles)
-        console.log(req.user.roles.includes(role))
         if (req.user == undefined || req.user.roles.includes(role) == false) {
             res.redirect('/auth/login');
         } else {

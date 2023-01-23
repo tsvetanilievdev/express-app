@@ -11,10 +11,10 @@ schema, virtuals, validation,Population...
 //authentication - validation
 [X] - User model
 [X] - register,login,logout
-[] - user roles - user, admin
-[] - only admin can create extras
+[XX] - user roles - user, admin
+[X] - only admin can view and create extras page
 [] - owner of collection or admin can edit or delete it!
-[] - private content - CRUD on own collections
+[X] - private content - CRUD on own collections
 [X] - using cookies with JSW/session -- expiring jwt, clear expired jwt 
 [X] - jwt and cookie will expire after 1 hour 
 [X] - validation - empty fields, diffrent passwords, wrong credentials
