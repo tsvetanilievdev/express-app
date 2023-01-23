@@ -13,6 +13,9 @@
 [X] - jwt and cookie will expire after 1 hour 
 [X] - validation - empty fields, diffrent passwords, wrong credentials
 
+//navigation
+[] - show diffrent buttons after authentication
+
 //Route guards
 
 //Functionallities

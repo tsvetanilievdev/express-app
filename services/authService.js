@@ -27,7 +27,6 @@ async function login(username, password) {
     }
     //check for password
     const match = await bcrypt.compare(password, user.hashedPass);
-    console.log(match);
     if (match == false) {
         throw new Error('Wrong credentials');
     }
