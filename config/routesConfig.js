@@ -16,8 +16,8 @@ module.exports = (app) => {
     app.use('/about', aboutController);
     app.use('/catalog', catalogController);
     app.use('/create', guard.hasUser(), createController);
-    app.use('/edit', editController);
-    app.use('/delete', deleteController);
+    app.use('/edit', guard.hasUser(), editController);
+    app.use('/delete', guard.hasUser(), deleteController);
     app.use('/extras', guard.hasRole('admin'), extrasController);
     app.use('/auth', authController);
 

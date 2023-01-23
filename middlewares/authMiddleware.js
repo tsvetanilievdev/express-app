@@ -2,8 +2,8 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (secretCode) => (req, res, next) => {
     const token = req.cookies.token;
-    let hasUser = false;
-    let isAdmin = false;
+    res.locals.hasUser = false;
+    res.locals.isAdmin = false;
     if (token) {
         try {
             const data = jwt.verify(token, secretCode);
@@ -14,17 +14,13 @@ module.exports = (secretCode) => (req, res, next) => {
             // res.clearCookie('token');
             return res.redirect('/login')
         }
-        hasUser = true;
-        isAdmin = req.user.roles.includes('admin');
+        //hasUser? for NAVigation
+        res.locals.hasUser = true;
+        //user isAdmin?
+        res.locals.isAdmin = req.user.roles.includes('admin');
     }
     //sign method
     req.signJWT = (data) => jwt.sign(data, secretCode, { expiresIn: '1h' });
-
-    //hasUser? for NAVigation
-    res.locals.hasUser = hasUser;
-
-    //user isAdmin?
-    res.locals.isAdmin = isAdmin;
 
     next();
 }

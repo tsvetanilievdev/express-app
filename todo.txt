@@ -4,7 +4,7 @@ schema, virtuals, validation,Population...
 [] - validation - in creation, methods
 
 //colections
-[X] - two main collections
+[X] - two main collections + user collection
 [X] - relations
 [X] - CRUD - with validation for empty fields
 
@@ -23,11 +23,13 @@ schema, virtuals, validation,Population...
 [X] - show diffrent buttons after authentication
 
 //Route guards
+[X] - only user can see Create Page
 
 //Functionallities
-[X] - searching by brand, model, description
+[X] - searching by brand, model, description - using COMPOUND index
 [] - sorting by price, extras
 [] - pagination - limit and skip
+[] - edit and delete extras by admin
 
 [] - About Page - form to send questions - new COllection Questions
 
