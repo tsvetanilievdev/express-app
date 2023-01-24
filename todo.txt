@@ -1,15 +1,22 @@
 //Database - Mongo and Mongoose
 schema, virtuals, validation,Population...
 [X] - using virtual - totalValue, which is dynamic property 
-[] - validation - in creation, methods
+[] - validation - in creation, methods, index for User
 
-//colections
+//Functionallities
+[X] - searching by brand, model, description - using COMPOUND index
+[] - sorting by price, extras
+[] - pagination - limit and skip
+[X] - delete extras by admin
+
+
+//Colections
 [X] - two main collections + user collection
 [X] - relations
 [X] - CRUD - with validation for empty fields
 [X] - when delete an Extra, it removes from Shoes records
 
-//authentication - validation
+//Authentication - validation
 [X] - User model
 [X] - register,login,logout
 [X] - user roles - user, admin
@@ -21,19 +28,15 @@ schema, virtuals, validation,Population...
 [X] - jwt and cookie will expire after 1 hour 
 [X] - validation - empty fields, diffrent passwords, wrong credentials
 
-//navigation
+//Navigation
 [X] - show diffrent buttons after authentication
-[X] - only admin can see Extras Page
 [X] - shows Admin logo
 
 //Route guards
 [X] - only user can see Create Page
+[X] - only admin can see Extras Page
+[X] - only owner or admin can see Edit and Delete Page
 
-//Functionallities
-[X] - searching by brand, model, description - using COMPOUND index
-[] - sorting by price, extras
-[] - pagination - limit and skip
-[] - edit and delete extras by admin
 
 [] - About Page - form to send questions - new COllection Questions
 
