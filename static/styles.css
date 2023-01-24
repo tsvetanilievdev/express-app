@@ -32,6 +32,7 @@ nav {
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    position: relative;
 }
 nav a {
     font-size: 1.25rem;
@@ -42,8 +43,21 @@ nav a {
     padding: 6px 12px;
     border-radius: 6px;
 }
+nav a.admin-logo {
+    background: red;
+    color: yellow;
+    position: absolute;
+    right: -18px;
+    top: 0;
+    padding: 3px 6px;
+}
 nav a:hover {
     background: #fff;
+}
+nav a.admin-logo:hover {
+    background: red;
+    color: yellow;
+    cursor: default;
 }
 /* CREATE FORM */
 .create-form {
