@@ -19,6 +19,7 @@ router.get('/:id', async (req, res) => {
     if (req.user && req.user._id == shoes.ownerId) {
         shoes.isOwner = true;
     }
+    shoes.isAdmin = res.locals.isAdmin;
     res.render('details', {
         title: 'Details Page',
         shoes

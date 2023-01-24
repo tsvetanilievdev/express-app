@@ -29,5 +29,13 @@
                 <a href="/delete/{{_id}}">Delete</a>
             </div>
         {{/if}}
+        {{#unless isOwner}}
+            {{#if isAdmin}}
+                <div class="controls">
+                    <a href="/edit/{{_id}}">Edit</a>
+                    <a href="/delete/{{_id}}">Delete</a>
+                </div>
+            {{/if}}
+        {{/unless}}
     </section>
 {{/with}}
