@@ -30,11 +30,9 @@ extraController.get('/:id/:name', async (req, res) => {
 extraController.post('/:id/delete', async (req, res) => {
     try {
         const id = req.params.id;
-        console.log('DELETING....', id);
         await deleteExtra(id);
         res.redirect('/');
     } catch (error) {
-        console.log(error.message);
         res.redirect('/extras');
     }
 })

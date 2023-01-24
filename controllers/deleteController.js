@@ -28,7 +28,6 @@ deleteController.post('/:id', async (req, res) => {
         await deleteById(id);
         res.redirect('/catalog');
     } catch (error) {
-        console.log(error.message);
         res.redirect('/catalog');
     }
 })
