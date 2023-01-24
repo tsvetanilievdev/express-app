@@ -10,8 +10,13 @@ async function createAnExtra(name, price) {
         price
     })
 }
+
+async function deleteExtra(id) {
+    return Extra.findByIdAndDelete(id);
+}
 module.exports = {
     getAllExtras,
-    createAnExtra
+    createAnExtra,
+    deleteExtra
 }
 

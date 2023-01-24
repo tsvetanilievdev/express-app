@@ -7,6 +7,7 @@ schema, virtuals, validation,Population...
 [X] - two main collections + user collection
 [X] - relations
 [X] - CRUD - with validation for empty fields
+[X] - when delete an Extra, it removes from Shoes records
 
 //authentication - validation
 [X] - User model
@@ -14,7 +15,7 @@ schema, virtuals, validation,Population...
 [X] - user roles - user, admin
 [X] - only admin can view and create extras page
 [X] - owner of the record or admin can edit it!
-[] - owner of the record or admin can delete it!
+[X] - owner of the record or admin can delete it!
 [X] - private content - CRUD on own records
 [X] - using cookies with JSW/session -- expiring jwt, clear expired jwt 
 [X] - jwt and cookie will expire after 1 hour 
@@ -22,7 +23,8 @@ schema, virtuals, validation,Population...
 
 //navigation
 [X] - show diffrent buttons after authentication
-[] - only admin can see Extras Page
+[X] - only admin can see Extras Page
+[X] - shows Admin logo
 
 //Route guards
 [X] - only user can see Create Page

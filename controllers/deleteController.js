@@ -2,9 +2,9 @@ const { deleteById, getById } = require('../services/shoesService.js');
 const { getAllExtras } = require('../services/extrasService.js');
 const whichBoxIsChecked = require('../utils/whichBoxIsChecked.js');
 
-const router = require('express').Router();
+const deleteController = require('express').Router();
 
-router.get('/:id', async (req, res) => {
+deleteController.get('/:id', async (req, res) => {
     const id = req.params.id;
     const shoes = await getById(id);
 
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
     }
 
 })
-router.post('/:id', async (req, res) => {
+deleteController.post('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         await deleteById(id);
@@ -33,4 +33,5 @@ router.post('/:id', async (req, res) => {
     }
 })
 
-module.exports = router;
+
+module.exports = deleteController;
