@@ -57,8 +57,26 @@ schema, virtuals, validation,Population...
 //UI
 [] - prettier css
 
-//deployment
+//deployment???????????????/
+---env???
 
 
 //README.md
 [] - better documentation
+
+
+
+//USERS
+--Admin - can create Extras, can edit and delete records
+username: admin
+password: 123
+
+--Users - can edit and delete own recors
+username: toto
+password: 333
+
+username:mario
+password: 123456
+
+username:daria
+password: 123456W
