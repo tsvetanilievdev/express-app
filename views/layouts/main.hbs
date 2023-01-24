@@ -11,8 +11,8 @@
         <nav>
             <a href="/">Home</a>
             <a href="/catalog">Catalog</a>
-            <a href="/about">About</a>
             {{#if hasUser}}
+                <a href="/my-catalog">My Catalog</a>
                 <a href="/create">Create</a>
                 {{#if isAdmin}}
                     <a href="/extras">Extras</a>

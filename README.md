@@ -1,8 +1,10 @@
 # express-app
 
+## DESCRIPTION
+
 MVC App
 
-# Using:
+# Used technologies:
 
 ## Express
 

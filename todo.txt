@@ -8,7 +8,7 @@ schema, virtuals, validation,Population...
 [] - sorting by price, extras
 [] - pagination - limit and skip
 [X] - delete extras by admin
-
+[] - User's catalog
 
 //Colections
 [X] - two main collections + user collection
@@ -38,7 +38,7 @@ schema, virtuals, validation,Population...
 [X] - only owner or admin can see Edit and Delete Page
 
 
-[] - About Page - form to send questions - new COllection Questions
+[] - My Catalog - form to send questions - new COllection Questions
 
 //Testing
 [] - check CODE -
@@ -60,6 +60,8 @@ schema, virtuals, validation,Population...
 //deployment???????????????/
 ---env???
 
+//views
+[] - welcome user message
 
 //README.md
 [] - better documentation

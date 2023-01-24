@@ -16,6 +16,7 @@ module.exports = (secretCode) => (req, res, next) => {
         }
         //hasUser? for NAVigation
         res.locals.hasUser = true;
+        res.locals.username = req.user.username.toUpperCase();
         //user isAdmin?
         res.locals.isAdmin = req.user.roles.includes('admin');
     }

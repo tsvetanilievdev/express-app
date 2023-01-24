@@ -14,6 +14,18 @@ async function getAll(search) {
 
 }
 
+async function getMyShoes(ownerId, search) {
+    if (search) {
+        return Shoes.find({ ownerId, $text: { $search: search } })
+            .sort({ 'createdAt': -1 })
+            .populate('extras', 'price')
+            .lean({ virtuals: true })
+            .exec();
+    }
+    return Shoes.find({ ownerId }).populate('extras', 'price').lean({ virtuals: true }).exec();
+
+}
+
 function getById(id) {
     return Shoes.findById(id)
         .populate('extras', 'name price')
@@ -65,5 +77,6 @@ module.exports = {
     create,
     editById,
     deleteById,
-    getAllShoesWithExtra
+    getAllShoesWithExtra,
+    getMyShoes
 }
