@@ -7,6 +7,7 @@ const router = require('express').Router();
 router.get('/:id', async (req, res) => {
     const id = req.params.id;
     const shoes = await getById(id);
+    //check for isOwner
     if ((req.user && req.user._id == shoes.ownerId) || res.locals.isAdmin) {
         shoes.isOwner = true;
         const allExtras = await getAllExtras();

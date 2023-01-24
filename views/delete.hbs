@@ -1,0 +1,47 @@
+<form class="create-form" action="/delete/{{shoes._id}}" method="post">
+    <section class="create-form-wrapper">
+        <h3>Are you sure you want to delete {{shoes.brand}} shoes?</h3>
+        <label>Brand:
+            <input type="text" name="brand" value="{{shoes.brand}}" disabled/></label>
+        <label>Model:
+            <input type="text" name="model" value="{{shoes.model}}" disabled/></label>
+        <label>Price:
+            <input type="number" name="price" value="{{shoes.price}}" disabled/></label>
+        <label>Size:
+            <input type="number" name="size" value="{{shoes.size}}" disabled/></label>
+        <label>Image:
+            <input type="text" name="image" value="{{shoes.image}}" disabled/></label>
+        <label>Description:
+            <textarea
+                name="description"
+                id=""
+                cols="30"
+                rows="10"
+                disabled
+            >{{shoes.description}}</textarea></label>
+        <input type="submit" value="Delete"/>
+    </section>
+    <section class="extras-add-wrapper">
+        {{#if extras}}
+            <h3>Available Extras</h3>
+            <ul>
+                {{#each extras}}
+                    <li>
+                        <label><input
+                                type="checkbox"
+                                name="box-{{_id}}"
+                                {{#if isOn}}
+                                checked
+                                {{/if}}
+                                disabled
+                            /><span>{{name}}:</span>{{price}}$
+
+                        </label>
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>There is no extras!</p>
+        {{/if}}
+    </section>
+</form>
