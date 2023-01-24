@@ -17,12 +17,12 @@ router.get('/:id', async (req, res) => {
             extras
         });
     } else {
-        res.redirect('/auth/login');
+        res.redirect('/catalog');
     }
 })
 
 router.post('/:id', async (req, res) => {
-
+    let id = req.params.id;
     try {
         let shoesData = {
             brand: req.body.brand,
@@ -34,11 +34,11 @@ router.post('/:id', async (req, res) => {
         }
         shoesData.extras = Object.keys(req.body).filter(k => k.startsWith('box')).map(k => k.slice(4))
 
-        const result = await editById(req.params.id, shoesData);
-        res.redirect('/catalog/' + result._id);
+        await editById(id, shoesData);
+        res.redirect('/catalog/' + id);
     } catch (errors) {
         res.locals.errors = errors;
-        res.locals.shoes = { ...req.body, _id: req.params.id }
+        res.locals.shoes = { ...req.body, _id: id }
         res.render('edit');
     }
 })

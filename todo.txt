@@ -47,7 +47,7 @@ schema, virtuals, validation,Population...
         - Study the Code of Masters
         - Write Good Comments
         - Refactor, Refactor, Refactor
-[] - test
+[] - tests
 
 //UI
 [] - prettier css
