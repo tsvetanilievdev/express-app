@@ -37,6 +37,10 @@ schema, virtuals, validation,Population...
 [X] - only admin can see Extras Page
 [X] - only owner or admin can see Edit and Delete Page
 
+//Validation and Error
+[] - anylazion every type of error - exception, express-validator, mongoose validator
+[] - parseError function - which will parse errors in expected format for displaying them
+[] - validator 
 
 [] - My Catalog - form to send questions - new COllection Questions
 

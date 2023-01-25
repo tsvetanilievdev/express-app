@@ -32,7 +32,16 @@ router.post('/', async (req, res) => {
         const result = await create(shoesData, ownerId);
         res.redirect('/catalog/' + result._id);
     } catch (errors) {
+        console.log(Object.keys(errors.errors).map(x => errors.errors[x].properties.message))
+        // for (const key in errors) {
+        //     const element = errors[key];
+        //     console.log('KEY', key, '\n', 'ELEMENT', element);
+        // }
         res.locals.errors = errors;
+        //check for mongoose schema errors
+        // if(errors.name == 'ValidationError'){
+        // res.locals.errors = [`The ${path}`];
+        // }
         const dataExtras = await getAllExtras();
         const extras = whichBoxIsChecked(req.body, dataExtras);
 
