@@ -1,5 +1,6 @@
-const { check, body, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 const { login, register } = require('../services/authService.js');
+const { parseExpressValidatorErrors, parseErrors } = require('../utils/parseErrors.js');
 const authController = require('express').Router();
 
 authController.get('/login', (req, res) => {
@@ -19,27 +20,18 @@ authController.post('/login',
         const { username, password } = req.body;
 
         try {
-            // if (username.trim() == '' || password.trim() == '') {
-            //     throw new Error('All fields are required!')
-            // }
             const isValid = validationResult(req);
-
             if (isValid.errors.length > 0) {
-                let result = isValid.errors.map(x => x.msg);
-                throw result;
+                throw parseExpressValidatorErrors(isValid);
             }
 
             const user = await login(username, password);
             attachToken(req, res, user);
             res.redirect('/');
         } catch (error) {
-            if (error.length > 0) {
-                res.locals.errors = error;
-            } else {
-                res.locals.errors = [error.message];
-            }
             res.render('login', {
-                username
+                username,
+                errors: parseErrors(error)
             })
         }
     })
@@ -65,7 +57,7 @@ authController.post('/register', async (req, res) => {
         res.redirect('/');
     } catch (error) {
         res.render('register', {
-            errors: [error.message],
+            errors: parseErrors(error),
             username
         })
     }

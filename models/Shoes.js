@@ -4,10 +4,12 @@ const mongooseLeanVirtuals = require('mongoose-lean-virtuals');
 const shoesSchema = new Schema({
     brand: { type: String, required: true },
     model: { type: String, required: true },
-    price: { type: Number, required: true, min: 0 },
-    size: { type: Number, required: true, min: 30 },
+    price: { type: Number, required: true, min: [0, 'The Price cannot be negative number!'] },
+    size: { type: Number, required: true, min: [30, 'The size must be 30 or greater!'] },
     description: { type: String },
-    image: { type: String, required: true },
+    img: {
+        type: String,
+    },
     extras: { type: [Types.ObjectId], default: [], ref: 'extra' },
     ownerId: { type: Types.ObjectId, required: true, ref: 'user' }
 }, { timestamps: true })

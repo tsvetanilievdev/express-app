@@ -1,5 +1,7 @@
+const { compareSync } = require('bcrypt');
 const { Types: { ObjectId } } = require('mongoose')
 const Shoes = require('../models/Shoes.js');
+const { parseMissingFields } = require('../utils/parseErrors.js');
 
 async function getAll(search) {
     if (search) {
@@ -26,11 +28,13 @@ async function getMyShoes(ownerId, search) {
 
 }
 
-function getById(id) {
-    return Shoes.findById(id)
+async function getById(id) {
+    const shoes = await Shoes.findById(id)
         .populate('extras', 'name price')
         .lean({ virtuals: true })
         .exec();
+
+    return shoes;
 }
 
 async function getAllShoesWithExtra(...extraIds) {
@@ -39,10 +43,9 @@ async function getAllShoesWithExtra(...extraIds) {
 }
 
 async function create(shoesData, ownerId) {
-    const missing = Object.entries(shoesData).filter(([k, v]) => !v);
+    const missing = parseMissingFields(shoesData);
     if (missing.length > 0) {
-        const errors = missing.map(k => `The ${k[0]} field is required!`);
-        throw errors;
+        throw missing;
     }
 
     let newShoes = await Shoes.create({
@@ -51,18 +54,17 @@ async function create(shoesData, ownerId) {
         price: Number(shoesData.price),
         size: Number(shoesData.size),
         description: shoesData.description,
-        image: shoesData.image,
+        img: shoesData.img,
         extras: shoesData.extras,
-        ownerId
+        ownerId: ownerId.trim()
     })
     return newShoes;
 }
 
 async function editById(id, shoesData) {
-    const missing = Object.entries(shoesData).filter(([k, v]) => !v);
+    const missing = parseMissingFields(shoesData);
     if (missing.length > 0) {
-        const errors = missing.map(k => `The ${k[0]} field is required!`);
-        throw errors;
+        throw missing;
     }
     const shoes = await Shoes.findByIdAndUpdate(id, shoesData);
     return shoes;

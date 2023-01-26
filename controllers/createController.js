@@ -1,5 +1,6 @@
 const { getAllExtras } = require('../services/extrasService.js');
 const { create } = require('../services/shoesService.js');
+const { parseErrors } = require('../utils/parseErrors.js');
 const whichBoxIsChecked = require('../utils/whichBoxIsChecked.js');
 
 const router = require('express').Router();
@@ -23,7 +24,7 @@ router.post('/', async (req, res) => {
             model: req.body.model,
             price: req.body.price,
             size: req.body.size,
-            image: req.body.image,
+            img: req.body.img,
             description: req.body.description,
         }
 
@@ -31,17 +32,9 @@ router.post('/', async (req, res) => {
         const ownerId = req.user._id;
         const result = await create(shoesData, ownerId);
         res.redirect('/catalog/' + result._id);
-    } catch (errors) {
-        console.log(Object.keys(errors.errors).map(x => errors.errors[x].properties.message))
-        // for (const key in errors) {
-        //     const element = errors[key];
-        //     console.log('KEY', key, '\n', 'ELEMENT', element);
-        // }
-        res.locals.errors = errors;
-        //check for mongoose schema errors
-        // if(errors.name == 'ValidationError'){
-        // res.locals.errors = [`The ${path}`];
-        // }
+    } catch (error) {
+        res.locals.errors = parseErrors(error);
+
         const dataExtras = await getAllExtras();
         const extras = whichBoxIsChecked(req.body, dataExtras);
 

@@ -30,7 +30,7 @@ router.post('/:id', async (req, res) => {
             model: req.body.model,
             price: req.body.price,
             size: req.body.size,
-            image: req.body.image,
+            img: req.body.img,
             description: req.body.description,
         }
         shoesData.extras = Object.keys(req.body).filter(k => k.startsWith('box')).map(k => k.slice(4))
