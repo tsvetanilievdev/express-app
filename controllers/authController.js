@@ -8,11 +8,9 @@ authController.get('/login', (req, res) => {
 
 })
 authController.post('/login',
-    body('username', 'Username field is empty!')
+    body('username', 'Username must be at least 4 charachters')
         .trim()
-        .notEmpty()
-        .bail()
-        .isLength({ min: 5 }).withMessage('The length of username must be at least 5 charachters'),
+        .isLength({ min: 4 }),
     body('password')
         .trim()
         .notEmpty().withMessage('Password field is empty!'),
@@ -29,6 +27,7 @@ authController.post('/login',
             attachToken(req, res, user);
             res.redirect('/');
         } catch (error) {
+            console.log(error);
             res.render('login', {
                 username,
                 errors: parseErrors(error)
@@ -43,15 +42,13 @@ authController.get('/register', (req, res) => {
 
 
 authController.post('/register',
-    body('username', 'Username field is empty!')
+    body('username')
         .trim()
-        .notEmpty()
-        .bail()
-        .isLength({ min: 5 }).withMessage('The length of username must be at least 5 charachters'),
+        .isLength({ min: 4 }).withMessage('The length of username must be at least 4 charachters'),
     body('password')
         .trim()
-        .notEmpty().withMessage('Password field is empty!'),
-    body('repass', 'The passwords must be the same dadas!')
+        .isLength({ min: 6 }).withMessage('Password must be at least 6 charachters long!'),
+    body('repass', 'The passwords must be the same!')
         .trim()
         .custom(function (value, { req }) {
             return value == req.body.password

@@ -1,4 +1,3 @@
-const { compareSync } = require('bcrypt');
 const { Types: { ObjectId } } = require('mongoose')
 const Shoes = require('../models/Shoes.js');
 const { parseMissingFields } = require('../utils/parseErrors.js');

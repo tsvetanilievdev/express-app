@@ -4,7 +4,8 @@
         {{#each errors}}
             <p class="error">{{this}}</p>
         {{/each}}
-        <label>Username: <input type="text" name="username" /></label>
+        <label>Username:
+            <input type="text" name="username" value="{{username}}" /></label>
         <label>Password: <input type="password" name="password" /></label>
         <input type="submit" value="Login" />
     </section>

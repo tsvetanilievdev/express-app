@@ -6,18 +6,21 @@ const deleteController = require('express').Router();
 
 deleteController.get('/:id', async (req, res) => {
     const id = req.params.id;
-    const shoes = await getById(id);
+    try {
+        const shoes = await getById(id);
+        if ((req.user && req.user._id == shoes.ownerId) || res.locals.isAdmin) {
+            shoes.isOwner = true;
+            const allExtras = await getAllExtras();
+            const extras = whichBoxIsChecked(shoes.extras, allExtras);
 
-    if ((req.user && req.user._id == shoes.ownerId) || res.locals.isAdmin) {
-        shoes.isOwner = true;
-        const allExtras = await getAllExtras();
-        const extras = whichBoxIsChecked(shoes.extras, allExtras);
-
-        res.render('delete', {
-            shoes,
-            extras
-        });
-    } else {
+            res.render('delete', {
+                shoes,
+                extras
+            });
+        } else {
+            res.redirect('/catalog');
+        }
+    } catch (error) {
         res.redirect('/catalog');
     }
 

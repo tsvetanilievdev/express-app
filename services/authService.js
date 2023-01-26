@@ -24,12 +24,12 @@ async function login(username, password) {
     //check if user exisists
     const user = await User.findOne({ username: username.toLowerCase() }).lean();
     if (!user) {
-        throw new Error('Wrong credentials');
+        throw new Error('Wrong username or password!');
     }
     //check for password
     const match = await bcrypt.compare(password, user.hashedPass);
     if (match == false) {
-        throw new Error('Wrong credentials');
+        throw new Error('Wrong username or password!');
     }
 
     return {
