@@ -66,13 +66,17 @@ async function editById(id, shoesData) {
         throw missing;
     }
     const shoes = await Shoes.findById(id);
-    Object.keys(shoesData).forEach(key => shoes[key] = shoesData[key])
+    updateRecordFields(shoesData, shoes);
     await shoes.save();
     return shoes;
 }
 
 async function deleteById(id) {
     await Shoes.findByIdAndDelete(id);
+}
+
+function updateRecordFields(inputData, record) {
+    return Object.keys(inputData).forEach(key => record[key] = inputData[key])
 }
 module.exports = {
     getAll,

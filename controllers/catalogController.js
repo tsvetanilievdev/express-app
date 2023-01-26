@@ -2,22 +2,29 @@ const router = require('express').Router();
 const { getAll, getById } = require('../services/shoesService.js');
 
 router.get('/:id', async (req, res) => {
-    let id = req.params.id;
-    let shoes = {}
+    const id = req.params.id;
     try {
-        shoes = await getById(id);
+        const shoes = await getById(id);
+        if (shoes != null) {
+            if (req.user && req.user._id == shoes?.ownerId) {
+                shoes.isOwner = true;
+            }
+
+            console.log('ADMIN', res.locals.isAdmin)
+            shoes.isAdmin = res.locals.isAdmin
+            res.render('details', {
+                title: 'Details Page',
+                shoes
+            });
+        } else {
+            throw new Error('Missing record!');
+        }
     } catch (error) {
-        //casting error ??????
         console.log(error)
+        //casting error ?????? CastError: Cast to ObjectId failed for value
+        res.redirect('/catalog');
     }
-    if (req.user && req.user._id == shoes.ownerId) {
-        shoes.isOwner = true;
-    }
-    shoes.isAdmin = res.locals.isAdmin;
-    res.render('details', {
-        title: 'Details Page',
-        shoes
-    });
+
 
 });
 
