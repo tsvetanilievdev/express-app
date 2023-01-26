@@ -8,14 +8,14 @@ authController.get('/login', (req, res) => {
 
 })
 authController.post('/login',
-    body('username', 'Username is empty!')
+    body('username', 'Username field is empty!')
         .trim()
         .notEmpty()
         .bail()
         .isLength({ min: 5 }).withMessage('The length of username must be at least 5 charachters'),
     body('password')
         .trim()
-        .notEmpty().withMessage('Password is empty!'),
+        .notEmpty().withMessage('Password field is empty!'),
     async (req, res) => {
         const { username, password } = req.body;
 
@@ -42,26 +42,39 @@ authController.get('/register', (req, res) => {
 })
 
 
-authController.post('/register', async (req, res) => {
-    const { username, password, repass } = req.body;
-    try {
-        if (username.trim() == '' || password.trim() == '') {
-            throw new Error('All fields are required!')
-        }
-        if (password.trim() !== repass.trim()) {
-            throw new Error('The passwords must be the same!')
-        }
-
-        const user = await register(username, password);
-        attachToken(req, res, user);
-        res.redirect('/');
-    } catch (error) {
-        res.render('register', {
-            errors: parseErrors(error),
-            username
+authController.post('/register',
+    body('username', 'Username field is empty!')
+        .trim()
+        .notEmpty()
+        .bail()
+        .isLength({ min: 5 }).withMessage('The length of username must be at least 5 charachters'),
+    body('password')
+        .trim()
+        .notEmpty().withMessage('Password field is empty!'),
+    body('repass', 'The passwords must be the same dadas!')
+        .trim()
+        .custom(function (value, { req }) {
+            return value == req.body.password
         })
-    }
-})
+    ,
+    async (req, res) => {
+        const { username, password } = req.body;
+        try {
+            const isValid = validationResult(req);
+            if (isValid.errors.length > 0) {
+                throw parseExpressValidatorErrors(isValid);
+            }
+
+            const user = await register(username, password);
+            attachToken(req, res, user);
+            res.redirect('/');
+        } catch (error) {
+            res.render('register', {
+                errors: parseErrors(error),
+                username
+            })
+        }
+    })
 
 authController.get('/logout', (req, res) => {
     res.clearCookie('token');

@@ -1,5 +1,6 @@
 const { getAllExtras } = require('../services/extrasService.js');
 const { getById, editById } = require('../services/shoesService.js');
+const { parseErrors } = require('../utils/parseErrors.js');
 const whichBoxIsChecked = require('../utils/whichBoxIsChecked.js');
 
 const router = require('express').Router();
@@ -38,9 +39,10 @@ router.post('/:id', async (req, res) => {
         await editById(id, shoesData);
         res.redirect('/catalog/' + id);
     } catch (errors) {
-        res.locals.errors = errors;
-        res.locals.shoes = { ...req.body, _id: id }
-        res.render('edit');
+        res.render('edit', {
+            shoes: { ...req.body, _id: id },
+            errors: parseErrors(errors)
+        });
     }
 })
 

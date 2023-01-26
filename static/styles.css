@@ -141,7 +141,9 @@ nav a.admin-logo:hover {
     object-fit: cover;
     margin-bottom: 12px;
     transition: 0.3s;
+    background-image: url("/static/default.png");
 }
+
 .catalog li:hover img {
     transform: scale(1.08);
     border-bottom: 6px solid #123123;
@@ -215,6 +217,8 @@ nav a.admin-logo:hover {
     height: fit-content;
     aspect-ratio: 1/1;
     object-fit: cover;
+    object-position: center center;
+    background-image: url("/static/default.png");
 }
 .details-card .content {
     width: 70%;

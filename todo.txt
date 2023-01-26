@@ -8,7 +8,7 @@ schema, virtuals, validation,Population...
 [] - sorting by price, extras
 [] - pagination - limit and skip
 [X] - delete extras by admin
-[] - User's catalog
+[X] - User's catalog
 
 //Colections
 [X] - two main collections + user collection
@@ -41,8 +41,11 @@ schema, virtuals, validation,Population...
 [] - anylazion every type of error - exception, express-validator, mongoose validator
 [] - parseError function - which will parse errors in expected format for displaying them
 [] - validator 
+[] - custom validation - mongoose schema, express-validator
 
-[] - My Catalog - form to send questions - new COllection Questions
+//try-catch everywhere!!!
+[] - try-catch
+
 
 //Testing
 [] - check CODE -

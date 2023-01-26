@@ -9,10 +9,19 @@ const shoesSchema = new Schema({
     description: { type: String },
     img: {
         type: String,
+        validate: {
+            validator: function (val) {
+                let pattern = new RegExp('\/.');
+                return pattern.test(val);
+            },
+            message: (props) => `${props.value} is invalid image URL!`
+        },
+        default: '/static/default.png'
     },
     extras: { type: [Types.ObjectId], default: [], ref: 'extra' },
     ownerId: { type: Types.ObjectId, required: true, ref: 'user' }
-}, { timestamps: true })
+},
+    { timestamps: true })
 
 shoesSchema.virtual('totalValue').get(function () {
     return this.price + this.extras.reduce((acc, c) => acc + Number(c.price), 0)

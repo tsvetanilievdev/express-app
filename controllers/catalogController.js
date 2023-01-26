@@ -23,12 +23,20 @@ router.get('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
     const search = req.query.search || '';
-    const shoes = await getAll(search);
-    res.render('catalog', {
-        title: 'Catalog Page',
-        shoes,
-        search
-    });
+    try {
+        const shoes = await getAll(search);
+        res.render('catalog', {
+            title: 'Catalog Page',
+            shoes,
+            search
+        });
+    } catch (error) {
+        res.render('catalog', {
+            title: 'Catalog Page',
+            shoes: [],
+            search
+        });
+    }
 
 });
 

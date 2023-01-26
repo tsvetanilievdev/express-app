@@ -66,7 +66,9 @@ async function editById(id, shoesData) {
     if (missing.length > 0) {
         throw missing;
     }
-    const shoes = await Shoes.findByIdAndUpdate(id, shoesData);
+    const shoes = await Shoes.findById(id);
+    Object.keys(shoesData).forEach(key => shoes[key] = shoesData[key])
+    await shoes.save();
     return shoes;
 }
 
