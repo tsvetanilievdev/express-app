@@ -27,7 +27,6 @@ authController.post('/login',
             attachToken(req, res, user);
             res.redirect('/');
         } catch (error) {
-            console.log(error);
             res.render('login', {
                 username,
                 errors: parseErrors(error)

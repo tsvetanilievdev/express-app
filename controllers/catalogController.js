@@ -10,7 +10,6 @@ router.get('/:id', async (req, res) => {
                 shoes.isOwner = true;
             }
 
-            console.log('ADMIN', res.locals.isAdmin)
             shoes.isAdmin = res.locals.isAdmin
             res.render('details', {
                 title: 'Details Page',

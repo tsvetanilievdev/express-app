@@ -1,7 +1,6 @@
 function parseErrors(error) {
     //check for mongoose error = ValidationError
     if (error.name == 'ValidationError') {
-        console.log('MONGOOSE')
         return Object.keys(error.errors).map(x => error.errors[x].message);
     }
     if (Array.isArray(error)) {

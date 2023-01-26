@@ -46,6 +46,11 @@ schema, virtuals, validation,Population...
 //try-catch everywhere!!!
 [] - try-catch
 
+//checking controllers ony by one - check and validation, expected errors
+[X] - Auth
+[X] - Catalog
+[] - others
+
 
 //Testing
 [] - check CODE -
@@ -64,6 +69,7 @@ schema, virtuals, validation,Population...
 //UI
 [] - prettier css
 
+
 //deployment???????????????/
 ---env???
 
@@ -73,6 +79,8 @@ schema, virtuals, validation,Population...
 //README.md
 [] - better documentation
 
+//Bugs
+[] - to fix catalog page - card without working image is broken!
 
 
 //USERS
@@ -88,4 +96,4 @@ username:mario
 password: 123456
 
 username:daria
-password: 123456W
+password: 123456
