@@ -1,5 +1,4 @@
 const homeController = require('../controllers/homeController.js');
-const aboutController = require('../controllers/aboutController.js');
 const catalogController = require('../controllers/catalogController.js');
 const myCatalogController = require('../controllers/myCatalogController.js')
 const createController = require('../controllers/createController.js');
@@ -14,7 +13,6 @@ const guard = require('../middlewares/guardsMiddleware.js');
 module.exports = (app) => {
     app.use('/', homeController);
     //attach all controllers
-    app.use('/about', aboutController);
     app.use('/catalog', catalogController);
     app.use('/my-catalog', myCatalogController);
     app.use('/create', guard.hasUser(), createController);
