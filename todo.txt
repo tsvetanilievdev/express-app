@@ -49,7 +49,10 @@ schema, virtuals, validation,Population...
 //checking controllers ony by one - check and validation, expected errors
 [X] - Auth
 [X] - Catalog
-[] - others
+[X] - My Catalog
+[] - Edit
+[] - Delete
+[] - Extras
 
 
 //Testing
