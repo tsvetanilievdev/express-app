@@ -1,5 +1,7 @@
+const { body, validationResult } = require('express-validator');
 const { createAnExtra, getAllExtras, deleteExtra } = require('../services/extrasService.js');
 const { getAllShoesWithExtra } = require('../services/shoesService.js');
+const { parseExpressValidatorErrors, parseErrors } = require('../utils/parseErrors.js');
 
 const extraController = require('express').Router();
 
@@ -10,12 +12,35 @@ extraController.get('/', async (req, res) => {
     });
 })
 
-extraController.post('/', async (req, res) => {
+extraController.post('/',
+    body('name', 'Name must contains only english letters or numbers!')
+        .trim()
+        .isAlphanumeric(),
+    body('price', 'Price must be a number!')
+        .trim()
+        .isNumeric(),
+    async (req, res) => {
+        try {
+            const isValid = validationResult(req);
+            if (!isValid.isEmpty()) {
+                throw parseExpressValidatorErrors(isValid);
+            }
+            await createAnExtra(req.body.name, req.body.price);
+            res.redirect('/extras')
+        } catch (error) {
+            const extras = await getAllExtras();
 
-    await createAnExtra(req.body.name, req.body.price);
-    res.redirect('/extras')
+            res.render('extras', {
+                errors: parseErrors(error),
+                input: {
+                    name: req.body.name,
+                    price: req.body.price
+                },
+                extras
+            })
+        }
 
-})
+    })
 
 extraController.get('/:id/:name', async (req, res) => {
     const { id, name } = req.params

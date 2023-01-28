@@ -40,8 +40,8 @@ schema, virtuals, validation,Population...
 //Validation and Error
 [X] - analyzing every type of error which could occor - exception, express-validator, mongoose validator
 [X] - parseError function - which will parse errors in expected format for displaying them
-[] - validator 
-[] - custom validation - mongoose schema, express-validator
+[x] - validator 
+[x] - custom validation, mongoose schema, express-validator
 
 //try-catch everywhere!!!
 [] - try-catch
@@ -50,8 +50,8 @@ schema, virtuals, validation,Population...
 [X] - Auth
 [X] - Catalog
 [X] - My Catalog
-[] - Edit
-[] - Delete
+[X] - Edit
+[X] - Delete
 [] - Extras
 
 
