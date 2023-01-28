@@ -25,10 +25,10 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id', body('brand', 'Brand must contains only english letters or numbers!')
     .trim()
-    .isAlphanumeric(),
+    .isAlphanumeric('en-US', { ignore: ' ' }),
     body('model', 'Model must contains only english letters or numbers!')
         .trim()
-        .isAlphanumeric(),
+        .isAlphanumeric('en-US', { ignore: ' ' }),
     body('price', 'Price must be a number!')
         .trim()
         .isNumeric(),

@@ -15,7 +15,7 @@ extraController.get('/', async (req, res) => {
 extraController.post('/',
     body('name', 'Name must contains only english letters or numbers!')
         .trim()
-        .isAlphanumeric(),
+        .isAlphanumeric('en-US', { ignore: ' ' }),
     body('price', 'Price must be a number!')
         .trim()
         .isNumeric(),

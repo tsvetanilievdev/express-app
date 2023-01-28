@@ -45,7 +45,7 @@ authController.post('/register',
         .trim()
         .isLength({ min: 4 }).withMessage('Username must be at least 4 charachters')
         .bail()
-        .isAlphanumeric().withMessage('Username must contains only english letters or numbers!'),
+        .isAlphanumeric('en-US', { ignore: ' ' }).withMessage('Username must contains only english letters or numbers!'),
     body('password')
         .trim()
         .isLength({ min: 6 }).withMessage('Password must be at least 6 charachters long!'),
