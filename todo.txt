@@ -38,8 +38,8 @@ schema, virtuals, validation,Population...
 [X] - only owner or admin can see Edit and Delete Page
 
 //Validation and Error
-[] - anylazion every type of error - exception, express-validator, mongoose validator
-[] - parseError function - which will parse errors in expected format for displaying them
+[X] - analyzing every type of error which could occor - exception, express-validator, mongoose validator
+[X] - parseError function - which will parse errors in expected format for displaying them
 [] - validator 
 [] - custom validation - mongoose schema, express-validator
 
@@ -84,6 +84,11 @@ schema, virtuals, validation,Population...
 
 //Bugs
 [] - to fix catalog page - card without working image is broken!
+[] - to fix - when edit shoes, and added wrong input extras ara hiden!!
+
+//To do 
+[X] - username must contains only english letters. could contains numbers.
+[] - shoes name and model and extras name MUST contain only english letters.could contains numbers
 
 
 //USERS
