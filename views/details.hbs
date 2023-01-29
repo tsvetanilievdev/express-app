@@ -1,6 +1,10 @@
 {{#with shoes}}
     <section class="details-card">
-        <img src="{{img}}" alt="" />
+        <img
+            src="{{img}}"
+            alt=""
+            onerror="this.onerror=null;this.src='/static/default.png'"
+        />
         <div class="content">
             <h3>{{brand}} {{model}}</h3>
             <p><span>Price:</span> {{price}}$</p>

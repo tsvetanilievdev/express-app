@@ -1,6 +1,10 @@
 <li>
     <h3>{{brand}} {{model}}</h3>
-    <img src="{{img}}" alt="" />
+    <img
+        src="{{img}}"
+        alt=""
+        onerror="this.onerror=null;this.src='/static/default.png'"
+    />
     <p>Price: {{totalValue}}$</p>
     <a href="/catalog/{{_id}}">More info</a>
 </li>
