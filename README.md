@@ -19,7 +19,7 @@
 
 ## USERS:
 --Admin - can create Extras, can edit and delete records:
--username: admin password: 123
+- username: admin password: 123
 
 --Users - can edit and delete own recors:
 - username: toto password: 333
