@@ -1,10 +1,10 @@
 ## DESCRIPTION
 
 ### MVC App:
-Use templates - Express Handlebars;
-Use database - MongoDb;
-Use authentication and Authorization; - cookies and sessions; - hashing of passwords; - user roles - user, admin;
-Use full CRUD;
+- Use templates - Express Handlebars;
+- Use database - MongoDb;
+- Use authentication and Authorization; - cookies and sessions; - hashing of passwords; - user roles - user, admin;
+- Use full CRUD;
 
 ## Used technologies:
 
