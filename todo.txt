@@ -27,6 +27,7 @@ schema, virtuals, validation,Population...
 [X] - using cookies with JSW/session -- expiring jwt, clear expired jwt 
 [X] - jwt and cookie will expire after 1 hour 
 [X] - validation - empty fields, diffrent passwords, wrong credentials
+[] - replace jwt with express session
 
 //Navigation
 [X] - show diffrent buttons after authentication

@@ -1,22 +1,25 @@
-# express-app
-
 ## DESCRIPTION
 
-MVC App
+### MVC App
 
-# Used technologies:
+Use templates - Express Handlebars;
+Use database - MongoDb;
+Use authentication and Authorization; - cookies and sessions; - hashing of passwords; - user roles - user, admin;
+Use full CRUD;
 
-## Express
+## Used technologies:
 
-## Express-handlebars
+### Express
 
-# mongoDb and Mongoose:
+### Express-handlebars
+
+### mongoDb and Mongoose:
 
 -   using two collections - Shoes and Extras - with CRUD operations;
 -   they have ralations between them
 -   text searching using text compounded index(brand,model, description),sort, limit;
 
-# USERS
+## USERS
 
 --Admin - can create Extras, can edit and delete records
 username: admin
