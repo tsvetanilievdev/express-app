@@ -17,15 +17,11 @@
 -   they have ralations between them
 -   text searching using text compounded index(brand,model, description),sort, limit;
 
-## USERS
+## USERS:
 --Admin - can create Extras, can edit and delete records:
-username: admin
-password: 123
+-username: admin password: 123
 
 --Users - can edit and delete own recors:
-username: toto
-password: 333
-username:mario
-password: 123456
-username:daria
-password: 123456W
+- username: toto password: 333
+- username:mario password: 123456
+- username:daria password: 123456W
