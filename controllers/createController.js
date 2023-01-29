@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     } catch (error) {
         res.render('404');
     }
-})
+});
 
 router.post('/',
     body('brand', 'Brand must contains only english letters or numbers!')
@@ -52,14 +52,15 @@ router.post('/',
             const result = await create(shoesData, ownerId);
             res.redirect('/catalog/' + result._id);
         } catch (error) {
-            res.locals.errors = parseErrors(error);
 
             const dataExtras = await getAllExtras();
             const extras = whichBoxIsChecked(req.body, dataExtras);
 
-            res.locals.shoes = { ...req.body }
-            res.locals.extras = extras;
-            res.render('create');
+            res.render('create', {
+                shoes: { ...req.body },
+                extras,
+                errors: parseErrors(error)
+            });
         }
     })
 

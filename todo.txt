@@ -44,7 +44,7 @@ schema, virtuals, validation,Population...
 [x] - custom validation, mongoose schema, express-validator
 
 //try-catch everywhere!!!
-[] - try-catch
+[X] - try-catch
 
 //checking controllers ony by one - check and validation, expected errors
 [X] - Auth
@@ -52,7 +52,7 @@ schema, virtuals, validation,Population...
 [X] - My Catalog
 [X] - Edit
 [X] - Delete
-[] - Extras
+[X] - Extras
 
 
 //Testing
@@ -83,12 +83,12 @@ schema, virtuals, validation,Population...
 [] - better documentation
 
 //Bugs
-[] - to fix catalog page - card without working image is broken!
-[] - to fix - when edit shoes, and added wrong input extras ara hiden!!
+[] - CSS -- to fix catalog page - card without working image is broken!
+[X] - to fix - when edit shoes, and added wrong input extras ara hiden!!
 
 //To do 
 [X] - username must contains only english letters. could contains numbers.
-[] - shoes name and model and extras name MUST contain only english letters.could contains numbers
+[X] - shoes name and model and extras name MUST contain only english letters.could contains numbers
 
 
 //USERS

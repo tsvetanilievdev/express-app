@@ -44,12 +44,16 @@ extraController.post('/',
 
 extraController.get('/:id/:name', async (req, res) => {
     const { id, name } = req.params
-    const shoes = await getAllShoesWithExtra(id);
-    res.render('extrasDetails', {
-        shoes,
-        name,
-        id
-    });
+    try {
+        const shoes = await getAllShoesWithExtra(id);
+        res.render('extrasDetails', {
+            shoes,
+            name,
+            id
+        });
+    } catch (error) {
+        res.redirect('/extras');
+    }
 })
 
 extraController.post('/:id/delete', async (req, res) => {

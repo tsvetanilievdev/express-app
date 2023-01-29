@@ -5,6 +5,7 @@ const connectionString = 'mongodb://127.0.0.1:27017/shoes-store'
 module.exports = async (app) => {
 
     try {
+        mongoose.set('strictQuery', false);
         await mongoose.connect(connectionString, {
             useUnifiedTopology: true,
             useNewUrlParser: true
