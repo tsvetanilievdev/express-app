@@ -15,7 +15,12 @@ function parseErrors(error) {
 
 
 function parseExpressValidatorErrors(isValid) {
-    return isValid.errors.map(x => x.msg);
+    if (!(isValid && isValid.errors)) {
+        return [];
+    }
+    return isValid.errors
+        .map(x => x.msg || '')
+        .filter(x => x.length > 0);
 }
 
 function parseMissingFields(data) {
